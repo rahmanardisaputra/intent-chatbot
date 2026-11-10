@@ -62,6 +62,7 @@ class ChatbotService
         $payload = [
             'model' => $model,
             'messages' => $messages,
+            'stream' => false,
         ];
 
         if (!empty($tools)) {
@@ -106,6 +107,7 @@ class ChatbotService
                 ->post("{$baseUrl}/chat/completions", [
                     'model' => $model,
                     'messages' => $messages,
+                    'stream' => false,
                 ]);
 
             if (!$followUp->successful()) {
